@@ -1,0 +1,23 @@
+LOAN DEFAULT RISK PREDICTION - MODEL SUMMARY
+==================================================
+
+Records: 26,000
+Features: 28
+Train/Test split: 80/20 (stratified)
+Test set size: 5,200
+Overall default rate: 16.57%
+
+Best boosting round: 139
+Test AUC-ROC: 0.7884
+
+Top 10 features by gain:
+  credit_score                     45.9%
+  credit_score_pctrank             14.8%
+  dti                              7.6%
+  latest_roll3_avg_days_late       3.6%
+  loan_to_income_ratio             3.4%
+  pctrank_avg_lateness             2.6%
+  avg_days_late_momentum           2.5%
+  dti_decile                       2.3%
+  annual_income                    2.1%
+  interest_rate                    2.1%
