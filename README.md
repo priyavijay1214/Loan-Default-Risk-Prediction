@@ -1,8 +1,8 @@
-# Loan Default Risk Prediction
+# Loan Default Risk Prediction 
 
 Predicts consumer loan default risk using a LightGBM classifier trained on a
 28-feature dataset engineered with SQL window functions, on a portfolio of
-26,000+ loan records.
+26,000+ loan records
 
 **Result: Test AUC-ROC = 0.788**
 
