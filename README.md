@@ -58,7 +58,6 @@ features, 8 payment-history window features, 2 credit-inquiry features = **28
 total**.
 
 ## Model
-
 - **Algorithm**: LightGBM (gradient-boosted trees), binary objective
 - **Split**: 80/20 stratified train/test
 - **Class imbalance**: handled via `scale_pos_weight`
@@ -80,7 +79,6 @@ demonstrating that the engineered behavioral features add real incremental
 signal beyond a plain credit-score model.
 
 ## Outputs
-
 - `outputs/lightgbm_loan_default_model.txt` — trained model
 - `outputs/feature_importance.csv` / `.png`
 - `outputs/roc_curve.png`
@@ -89,7 +87,6 @@ signal beyond a plain credit-score model.
 - `outputs/model_summary.txt`
 
 ## Notes on this build
-
 This is a from-scratch, fully synthetic reconstruction built to mirror the
 resume bullet ("LightGBM, AUC 0.79, 28-feature SQL window-function pipeline
 on 25K+ records"). The synthetic generator embeds a realistic latent risk
