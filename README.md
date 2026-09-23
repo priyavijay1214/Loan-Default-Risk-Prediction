@@ -7,7 +7,6 @@ Predicts consumer loan default risk using a LightGBM classifier trained on a
 **Result: Test AUC-ROC = 0.788**
 
 ## Pipeline
-
 ```
 src/generate_data.py         -> synthetic borrower/loan/payment/inquiry tables (SQLite + CSV)
 sql/feature_engineering.sql  -> 28-feature modeling table via SQL window functions
@@ -22,7 +21,6 @@ python3 src/train_model.py
 ```
 
 ## Data
-
 Four related tables simulate a real loan-servicing environment:
 
 | Table | Grain | Rows |
@@ -35,7 +33,6 @@ Four related tables simulate a real loan-servicing environment:
 Default rate: 16.6% (realistic for a consumer unsecured/near-prime portfolio).
 
 ## SQL Feature Engineering (28 features)
-
 Built entirely with window functions over `payment_history` and
 `credit_inquiries`, joined to static borrower/loan attributes:
 
