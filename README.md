@@ -7,6 +7,7 @@ Predicts consumer loan default risk using a LightGBM classifier trained on a
 **Result: Test AUC-ROC = 0.788**
 
 ## Pipeline
+
 ```
 src/generate_data.py         -> synthetic borrower/loan/payment/inquiry tables (SQLite + CSV)
 sql/feature_engineering.sql  -> 28-feature modeling table via SQL window functions
@@ -21,6 +22,7 @@ python3 src/train_model.py
 ```
 
 ## Data
+
 Four related tables simulate a real loan-servicing environment:
 
 | Table | Grain | Rows |
@@ -33,6 +35,7 @@ Four related tables simulate a real loan-servicing environment:
 Default rate: 16.6% (realistic for a consumer unsecured/near-prime portfolio).
 
 ## SQL Feature Engineering (28 features)
+
 Built entirely with window functions over `payment_history` and
 `credit_inquiries`, joined to static borrower/loan attributes:
 
@@ -55,6 +58,7 @@ features, 8 payment-history window features, 2 credit-inquiry features = **28
 total**.
 
 ## Model
+
 - **Algorithm**: LightGBM (gradient-boosted trees), binary objective
 - **Split**: 80/20 stratified train/test
 - **Class imbalance**: handled via `scale_pos_weight`
@@ -63,6 +67,7 @@ total**.
 - **Result**: Test AUC-ROC = **0.788**, best iteration 139
 
 ### Top features by gain
+
 1. Credit score (45.9%)
 2. Credit score percentile rank (14.8%)
 3. DTI (7.6%)
@@ -76,6 +81,7 @@ demonstrating that the engineered behavioral features add real incremental
 signal beyond a plain credit-score model.
 
 ## Outputs
+
 - `outputs/lightgbm_loan_default_model.txt` — trained model
 - `outputs/feature_importance.csv` / `.png`
 - `outputs/roc_curve.png`
@@ -84,6 +90,7 @@ signal beyond a plain credit-score model.
 - `outputs/model_summary.txt`
 
 ## Notes on this build
+
 This is a from-scratch, fully synthetic reconstruction built to mirror the
 resume bullet ("LightGBM, AUC 0.79, 28-feature SQL window-function pipeline
 on 25K+ records"). The synthetic generator embeds a realistic latent risk
